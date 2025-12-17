@@ -13,11 +13,12 @@ export default function Chat() {
     setAnswer("");
     setCitations([]);
 
-    const res = await fetch("http://127.0.0.1:8000/query", {
+    const res = await fetch("physical-ai-spec-kit-production.up.railway.app", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question })
+      body: JSON.stringify({ question }),
     });
+
 
     const data = await res.json();
     setAnswer(data.answer);
