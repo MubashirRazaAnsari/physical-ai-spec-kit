@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from rag.answer import answer_question
 
-from answer import answer_question
 
 app = FastAPI(
     title="Physical AI RAG API",
