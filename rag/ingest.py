@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
 
-from chunker import chunk_markdown
-from embed import embed_texts
+from rag.chunker import chunk_text
+from rag.embed import embed_texts
+
 
 load_dotenv()
 

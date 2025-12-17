@@ -2,7 +2,8 @@ import os
 from dotenv import load_dotenv
 from google import genai
 
-from retriever import retrieve
+from rag.retriever import retrieve
+
 
 load_dotenv()
 
