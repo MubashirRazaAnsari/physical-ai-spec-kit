@@ -77,6 +77,8 @@ def test_google():
         print(f"❌ HTTP Error: {e.code} {e.reason}")
         if e.code == 400:
              print("   (Bad Request - API Key might be invalid or model not supported)")
+        if e.code == 404:
+             print("   (Not Found - The model name 'gemini-1.5-flash' might be wrong or you don't have access to it)")
         return False
     except Exception as e:
         print(f"❌ Connection Failed: {str(e)}")
