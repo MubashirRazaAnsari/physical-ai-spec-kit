@@ -1,30 +1,270 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* Modern Design System with Deep Tech / Physical AI Theme */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Core Colors - Deep Teal/Blue Vibe for "Physical AI" */
+  --ifm-color-primary: #00cdb8;
+  --ifm-color-primary-dark: #00b8a5;
+  --ifm-color-primary-darker: #00ad9b;
+  --ifm-color-primary-darkest: #008f80;
+  --ifm-color-primary-light: #1affde;
+  --ifm-color-primary-lighter: #28ffe1;
+  --ifm-color-primary-lightest: #51ffea;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+
+  /* Backgrounds & Surfaces (Light Mode) */
+  --ifm-background-color: #f8f9fa;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.85);
+
+  /* Shadows & Glass */
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark Mode - The "Premium" Look */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #00e0c6;
+  --ifm-color-primary-dark: #00c9b2;
+  --ifm-color-primary-darker: #00bea8;
+  --ifm-color-primary-darkest: #009c8a;
+  --ifm-color-primary-light: #1affdf;
+  --ifm-color-primary-lighter: #28ffe2;
+  --ifm-color-primary-lightest: #52ffea;
+
+  /* Backgrounds */
+  --ifm-background-color: #0b0e14;
+  /* Deep space blue/black */
+  --ifm-background-surface-color: #151a23;
+  /* Slightly lighter surface */
+  --ifm-navbar-background-color: rgba(11, 14, 20, 0.75);
+  /* Glassy */
+}
+
+/* Global Aesthetics */
+body {
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.button {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 128, 255, 0.25);
+}
+
+/* Chat Interface Styles */
+.chat-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  /* Adjust for navbar */
+}
+
+.chat-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.chat-header h1 {
+  background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow);
+  /* Inner shadow effect could be added */
+  border: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  max-width: 80%;
+  padding: 1rem;
+  border-radius: 12px;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  align-self: flex-end;
+  background: var(--ifm-color-primary);
+  color: #000;
+  /* Contrast against bright teal */
+  border-bottom-right-radius: 2px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom-left-radius: 2px;
+  color: var(--ifm-font-color-base);
+}
+
+.chat-input-form {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.chat-submit-btn {
+  padding: 0 2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--ifm-color-primary);
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.chat-submit-btn:hover {
+  transform: scale(1.05);
+}
+
+.chat-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Citations */
+.citations-section {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.85em;
+}
+
+.citations-section h4 {
+  margin-bottom: 0.25rem;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Typing Indicator */
+.typing-indicator span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  border-radius: 50%;
+  animation: typing 1s infinite;
+  margin: 0 2px;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Suggested Questions */
+.suggested-questions ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.suggested-questions button {
+  background: transparent;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.suggested-questions button:hover {
+  background: var(--ifm-color-primary);
+  color: #000;
+  transform: translateY(-2px);
 }
