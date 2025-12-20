@@ -7,7 +7,7 @@ import ssl
 QDRANT_URL = "https://bae94f35-1cf2-4a9a-9013-49c56d993bb7.europe-west3-0.gcp.cloud.qdrant.io"
 QDRANT_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.ZGCkfJUN0SR4jVe6lxXqqCmWIqjSRvU1ZbV5YNby3Ac"
 COLLECTION_NAME = "physical_ai_book"
-GOOGLE_API_KEY = "AIzaSyAMVT4w3p9I1PH0_erEzIKm4ludKi9pzz0"
+GOOGLE_API_KEY = "AIzaSyAd87F5wrpYiLE0qr_pfNASO3IjtiuV78g"
 
 def test_qdrant():
     print("\n1. Testing Qdrant Connection (Standard Lib)...")
@@ -46,7 +46,7 @@ def test_qdrant():
 def test_google():
     print("\n2. Testing Google Gemini Connection (Standard Lib)...")
     # Using gemini-1.5-flash as it is usually available and free tier
-    model = "gemini-1.5-flash"
+    model = "gemini-2.5-flash-exp"
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GOOGLE_API_KEY}"
     
     payload = {

@@ -24,7 +24,7 @@ genai_client = genai.Client(
 # -----------------------------
 def embed_query(text: str):
     response = genai_client.models.embed_content(
-        model="models/embedding-001",
+        model="models/text-embedding-004",
         contents=text
     )
     return response.embeddings[0].values

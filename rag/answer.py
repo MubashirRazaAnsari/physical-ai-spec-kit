@@ -8,7 +8,7 @@ from rag.retriever import retrieve
 load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-MODEL = "gemini-1.5-flash"
+MODEL = "gemini-2.0-flash-exp"
 
 
 def is_section_query(question: str) -> bool:
